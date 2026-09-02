@@ -1,0 +1,18 @@
+@use "../solarized.sass" as solarized
+@use "../fonts.sass" as fonts
+
+.text-field
+  max-width: 350px
+
+  .title
+    @include fonts.title-font
+    color: solarized.$base01
+    padding-bottom: 1.5em
+    font-size: 2em
+
+
+  .text
+    @include fonts.text-font
+    color: solarized.$base00
+    text-align:justify
+
