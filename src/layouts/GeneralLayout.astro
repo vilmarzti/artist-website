@@ -1,0 +1,20 @@
+---
+import Head from '../components/Head.astro'
+import Menu from '../components/Menu.astro'
+import '../css/general.sass'
+
+---
+
+<html>
+   <head>
+        <Head/>
+        <title>Astro</title>
+    </head>
+    <body>
+        <Menu/>
+        <div class="container">
+            <slot/>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,42 @@
+@use '../solarized.sass' as solarized
+@use '../fonts.sass' as fonts
+
+a > div
+  text-decoration: none
+
+.menu-container
+    width: 100%
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+    border: 2px solid solarized.$base2
+
+    .artist-name
+      width: 50%
+      display: flex
+      justify-content: space-around
+
+      img
+        height: 100px
+
+    .menu-item
+      @include fonts.menu-font
+      border-left: 2px solid solarized.$base2
+      flex-grow: 1
+      display: flex
+      justify-content: center
+      align-items: center
+      text-decoration: None
+
+
+      &:hover
+        background-color: solarized.$base2
+
+
+  
+
+
+
+
+
