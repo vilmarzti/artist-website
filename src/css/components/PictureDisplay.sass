@@ -1,1 +1,18 @@
 @use '../solarized.sass' as solarized
+@use '../fonts.sass' as fonts
+
+
+.picture-container
+  display: flex
+  align-items: flex-end
+  justify-content: space-around
+
+  .picture
+    display: flex
+    flex-direction: column
+    max-width: 750px
+    
+    .caption
+      text-align: right
+      @include fonts.text-font
+      font-size: 12px

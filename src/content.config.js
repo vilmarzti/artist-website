@@ -16,6 +16,8 @@ const pictures = defineCollection({
         date: z.string(),
         image: z.string(),
         license: z.string()
+        medium: z.string.optional()
+        size: z.string.optional()
     })
 })
 

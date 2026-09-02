@@ -1,15 +1,17 @@
 ---
-
-import '../css/components/PictureDisplay.sass'
+import '../css/components/Label.sass'
 import { CollectionEntry } from 'astro:content'
-import { Image } from 'astro:assets'
 
 interface Props {
 picture: CollectionEntry<'pictures'>,
-attribution: boolean
 }
 
-const { picture, attribution } = Astro.props
+const { picture } = Astro.props
 ---
+
 <div class="label-container">
+   <div class="entry"> Title: { picture.data.title } ({ picture.data.date }) </div>
+   <div class="entry"> Artist: Martin Villavicencio </div>
+   <div class="entry"> Medium: { picture.data.medium } </div>
+   <div class="entry"> Size: { picture.data.size } </div>
 </div>

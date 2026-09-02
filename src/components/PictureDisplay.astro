@@ -1,11 +1,14 @@
 ---
 import '../css/components/PictureDisplay.sass'
+
 import { CollectionEntry } from 'astro:content'
 import { Image } from 'astro:assets'
 
+import Label from './Label.astro'
+
 interface Props {
-picture: CollectionEntry<'pictures'>,
-attribution: boolean
+    picture: CollectionEntry<'pictures'>,
+    attribution: String 
 }
 
 const { picture, attribution } = Astro.props
@@ -13,12 +16,14 @@ const { picture, attribution } = Astro.props
 ---
 
 
-<div class="picture-containter">
+<div class="picture-container">
     <div class="picture">
         <img src={picture.data.image} alt=""/>
+        <div class="caption" style={ attribution === "below" ? "" : "display: none"}>
+            { picture.data.title } ({ picture.data.date }), Martin Villavicencio, { picture.data.license }
+        </div>
     </div>
-    <div class="label" display={ attribution ? "block" : "None"}>
-        { picture.data.license }
-        { picture.data.title }
+    <div class="label" style={ attribution === "side" ? "" : " display: none"}>
+        <Label picture={picture}/>
     </div>
 </div>
