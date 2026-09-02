@@ -12,13 +12,13 @@ interface Props {
 }
 
 const { picture, attribution } = Astro.props
-
+console.log(picture.data.image)
 ---
 
 
 <div class="picture-container">
     <div class="picture">
-        <img src={picture.data.image} alt=""/>
+        <img src={ picture.data.image } alt=""/>
         <div class="caption" style={ attribution === "below" ? "" : "display: none"}>
             { picture.data.title } ({ picture.data.date }), Martin Villavicencio, { picture.data.license }
         </div>

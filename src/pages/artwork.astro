@@ -1,5 +1,22 @@
 ---
+import { getCollection, getEntry } from 'astro:content'
+
 import GeneralLayout from '../layouts/GeneralLayout.astro'
+import PictureDisplay from '../components/PictureDisplay.astro'
+
+import '../css/pages/artwork.sass'
+
+
+const pic = await getEntry('pictures', 'Test')
+const multiple_pics = [pic, pic, pic, pic, pic, pic]
 ---
 <GeneralLayout title="Artwork">
+
+<div class="gallery-container">
+    { multiple_pics.map( picture => (
+        <div class="single-picture">
+            <PictureDisplay picture={picture} attribution="below"/>
+        </div>
+    ))}
+</div>
 </GeneralLayout>
