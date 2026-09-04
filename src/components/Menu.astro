@@ -1,5 +1,11 @@
 ---
 import "../css/components/Menu.sass"
+
+import { getEntry } from 'astro:content'
+
+import PictureDisplay from '../components/PictureDisplay.astro'
+
+const picture = await getEntry('pictures', 'Banner')
 ---
 <style>
     .menu-container
@@ -14,7 +20,7 @@ import "../css/components/Menu.sass"
                 </div>
 
                 <a class="artist-name" href="/">
-                    <img src="/images/Illustration_2.png" alt="" />
+                    <PictureDisplay picture={picture} attribution="None"/>
                 </a>
             </div>
     </div>
