@@ -3,5 +3,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    site: "http://localhost"
+    site: "https://vilmarzti.github.io"
+    base: "/artist-website"
 });
