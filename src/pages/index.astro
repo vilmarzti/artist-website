@@ -1,5 +1,5 @@
 ---
-import "../css/pages/index.sass"
+import "../css/pages/about.sass"
 
 import GeneralLayout from '../layouts/GeneralLayout.astro'
 import PictureDisplay from '../components/PictureDisplay.astro'
@@ -14,12 +14,11 @@ const text_content = await getEntry('text', 'index')
 
 <GeneralLayout title="Home Page">
 
-<div class="statement-container">
-    <div class="content-container">
+<div class="body-container">
+    <div class="pic">
         <PictureDisplay picture={pic} attribution="below" />
-
-        <Text text={text_content}/>
     </div>
+    <Text text={text_content}/>
 </div>
 
 </GeneralLayout>
