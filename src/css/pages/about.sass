@@ -1,4 +1,5 @@
-@import '../solarized.sass'
+@use '../solarized.sass' as solarized
+
 .body-container
   display: flex
   flex-direction: row
@@ -8,7 +9,7 @@
 
 
   .pic
-    background-color: $base00
+    background-color: solarized.$base00
     height: 600px
     width: 400px
 
