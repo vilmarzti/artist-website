@@ -11,12 +11,11 @@ const pic = await getEntry('pictures', 'Test')
 const multiple_pics = [pic, pic, pic, pic, pic, pic]
 ---
 <GeneralLayout title="Artwork">
-
 <div class="gallery-container">
     { multiple_pics.map( picture => (
-        <div class="single-picture">
+        <a class="single-picture" href={`${import.meta.env.BASE_URL}carousel/` + pic.data.title }>
             <PictureDisplay picture={picture} attribution="below"/>
-        </div>
+        </a>
     ))}
 </div>
 </GeneralLayout>

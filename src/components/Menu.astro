@@ -26,18 +26,18 @@ const picture = await getEntry('pictures', 'Banner')
     </div>
 
     <div class="menu-container">
-        <a class="menu-item" href="/">
+        <a class="menu-item" href={`${import.meta.env.BASE_URL}`}}>
            <div class="menu-item-name"> Home </div>
         </a>
-        <a class="menu-item" href="/artwork/">
+        <a class="menu-item" href={`${import.meta.env.BASE_URL}artwork`}>
            <div class="menu-item-name"> Artwork </div>
         </a>
 
-        <a class="menu-item" href="/credibility">
+        <a class="menu-item" href={`${import.meta.env.BASE_URL}credibility`}>
             <div class="menu-item-name">"Credibility"</div>
         </a>
 
-        <a class="menu-item" href="/about">
+        <a class="menu-item" href={`${import.meta.env.BASE_URL}about`}>
             <div class="menu-item-name"> About</div>
         </a>
     </div>

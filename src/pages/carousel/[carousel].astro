@@ -14,12 +14,7 @@ function sort_names (a, b) {
     return 0
 }
 
-function create_url(title) {
-    let url_split = Astro.url.pathname.split("/") 
-    url_split.pop()
-    url_split.push(title)
-    return url_split.join("/")
-}
+
 
 export async function getStaticPaths() {
     const collection = await getCollection('pictures')
@@ -38,26 +33,18 @@ const sorted_collection = collection.sort(sort_names)
 const pic_index = sorted_collection.findIndex( (p1) => p1.data.title === picture.data.title )
 
 
-
-let url_split = Astro.url.pathname.split("/") 
-
-
 const pre_index = (pic_index - 1 + sorted_collection.length ) % sorted_collection.length 
 const pre_title = sorted_collection[pre_index].data.title
-const pre_url = create_url(pre_title)
-
 
 
 const post_index = (pic_index + 1 + sorted_collection.length ) % sorted_collection.length 
 const post_title = sorted_collection[post_index].data.title
-const post_url = create_url(post_title)
 
-console.log(pre_index)
 ---
 
 <GeneralLayout title="Carousel">
-    <a href={pre_url}> {pre_title}</a>
-    <a href={pre_url}> {post_title}</a>
+    <a href={`${import.meta.env.BASE_URL}carousel/` + pre_title}> {pre_title}</a>
+    <a href={`${import.meta.env.BASE_URL}carousel/` + post_title}> {post_title}</a>
         <PictureDisplay picture={picture} attribution="side" />
 </GeneralLayout>
 {carousel}
