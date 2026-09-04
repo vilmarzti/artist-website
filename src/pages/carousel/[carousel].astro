@@ -1,0 +1,35 @@
+---
+
+import { getCollection } from 'astro:content'
+
+import GeneralLayout from '../layouts/GeneralLayout.astro'
+import PictureDisplay from '../components/PictureDisplay.astro'
+
+const collection = await getCollection('pictures')
+
+function sort_names (a, b) {
+    const nameA = a.data.title.toUpperCase()
+    const nameB = b.data.title.toUpperCase()
+    return (nameA < nameB ? -1 : 1)
+    return 0
+}
+
+const sort_collection = collection.sort(sort_names)
+
+export async function getStaticPaths() {
+    const collection = await getCollection('pictures')
+
+    const sort_collection = collection.sort((a, b) => {
+        const nameA = a.data.title.toUpperCase()
+        const nameB = b.data.title.toUpperCase()
+        return (nameA < nameB ? -1 : 1)
+        return 0
+        })
+
+    return sort_collection.map( (entry) => ({ "params": { "carousel": entry.id }}))
+}
+
+const { carousel } = Astro.params
+---
+
+{carousel}
