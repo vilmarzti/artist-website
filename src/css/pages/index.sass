@@ -1,0 +1,18 @@
+@use '../fonts.sass' as fonts
+
+.title
+  @include fonts.title-font
+  font-size: 28px
+  margin-bottom: 40px
+
+.statement-container
+  width: 80%
+
+.content-container
+  display: flex
+  justify-content: space-between 
+    
+  .text
+    max-width: 400px
+    font-size: 18px
+    @include fonts.text-font

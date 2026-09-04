@@ -4,39 +4,39 @@
 a > div
   text-decoration: none
 
-.menu-container
-    width: 100%
+.header-container
     display: flex
-    flex-direction: row
-    justify-content: space-between
+    align-items: end
+    margin-left: 80px
+    margin-right: 80px
 
-    border: 2px solid solarized.$base2
+    .name-container
+      width: 35%
 
-    .artist-name
-      width: 50%
+    .brand-container
+      background-color: solarized.$cyan
       display: flex
-      justify-content: space-around
+      align-items: end
+      padding: 30px 40px
+      width: fit-content
 
-      img
-        height: 100px
+      .text
+        color: solarized.$base3
 
-    .menu-item
-      @include fonts.menu-font
-      border-left: 2px solid solarized.$base2
-      flex-grow: 1
+      .artist-name img
+        width: 200px
+        height: unset
+
+    .menu-container
       display: flex
-      justify-content: center
-      align-items: center
-      text-decoration: None
+      justify-content: space-between
+      width: 65%
 
-
-      &:hover
-        background-color: solarized.$base2
-
-
-  
-
-
-
-
+      .menu-item
+        @include fonts.menu-font
+        flex-grow: 1
+        display: flex
+        justify-content: center
+        align-items: center
+        text-decoration: None
 
