@@ -19,7 +19,7 @@ const picture_src = ( base === "/" ? "" : base ) + picture.data.image
 
 <div class="picture-container">
     <div class="picture">
-        <img src={ picture.data.image } alt=""/>
+        <img src={ picture_src } alt=""/>
         <div class="caption" style={ attribution === "below" ? "" : "display: none"}>
             { picture.data.title } ({ picture.data.date }), Martin Villavicencio, { picture.data.license }
         </div>
