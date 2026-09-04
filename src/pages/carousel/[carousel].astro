@@ -2,8 +2,8 @@
 
 import { getCollection } from 'astro:content'
 
-import GeneralLayout from '../layouts/GeneralLayout.astro'
-import PictureDisplay from '../components/PictureDisplay.astro'
+import GeneralLayout from '../../layouts/GeneralLayout.astro'
+import PictureDisplay from '../../components/PictureDisplay.astro'
 
 const collection = await getCollection('pictures')
 
@@ -14,22 +14,50 @@ function sort_names (a, b) {
     return 0
 }
 
-const sort_collection = collection.sort(sort_names)
+function create_url(title) {
+    let url_split = Astro.url.pathname.split("/") 
+    url_split.pop()
+    url_split.push(title)
+    return url_split.join("/")
+}
 
 export async function getStaticPaths() {
     const collection = await getCollection('pictures')
 
-    const sort_collection = collection.sort((a, b) => {
-        const nameA = a.data.title.toUpperCase()
-        const nameB = b.data.title.toUpperCase()
-        return (nameA < nameB ? -1 : 1)
-        return 0
-        })
-
-    return sort_collection.map( (entry) => ({ "params": { "carousel": entry.id }}))
+    return collection.map( (picture) => ({ 
+            params: { carousel: picture.id },
+            props: { picture }
+        }))
 }
 
 const { carousel } = Astro.params
+const { picture } = Astro.props
+
+const sorted_collection = collection.sort(sort_names)
+
+const pic_index = sorted_collection.findIndex( (p1) => p1.data.title === picture.data.title )
+
+
+
+let url_split = Astro.url.pathname.split("/") 
+
+
+const pre_index = (pic_index - 1 + sorted_collection.length ) % sorted_collection.length 
+const pre_title = sorted_collection[pre_index].data.title
+const pre_url = create_url(pre_title)
+
+
+
+const post_index = (pic_index + 1 + sorted_collection.length ) % sorted_collection.length 
+const post_title = sorted_collection[post_index].data.title
+const post_url = create_url(post_title)
+
+console.log(pre_index)
 ---
 
+<GeneralLayout title="Carousel">
+    <a href={pre_url}> {pre_title}</a>
+    <a href={pre_url}> {post_title}</a>
+        <PictureDisplay picture={picture} attribution="side" />
+</GeneralLayout>
 {carousel}
