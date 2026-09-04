@@ -27,6 +27,3 @@ pnpm-debug.log*
 #who uses v$code
 .vscode/
 
-#data
-src/data/
-public/images/
