@@ -21,4 +21,15 @@ const pictures = defineCollection({
     })
 })
 
-export const collections  = { pictures }
+const text = defineCollection({
+    loader: glob({ 
+        pattern: '**/*.md',
+        base: './src/data/text/',
+        generateId: ({entry}) => entry.replace(/\.md$/,"")
+    }),
+
+    schema: z.object({
+        title: z.string(),
+    })
+})
+export const collections  = { pictures, text }

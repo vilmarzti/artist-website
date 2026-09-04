@@ -1,21 +1,23 @@
 ---
 import "../css/components/Text.sass"
+import { CollectionEntry } from 'astro:content'
+import { base } from 'astro:config/client'
 
 interface Props {
-  title: string;
-  text: string;
+    text: CollectionEntry<'text'>,
 }
-const {title, text} = Astro.props
+
+const { text } = Astro.props
 ---
 
 
 <div class="text-field">
     <div class="title">
-        {title}
+        {text.data.title}
     </div>
 
     <div class="text">
-        {text}
+        {text.body}
     </div>
 </div>
 

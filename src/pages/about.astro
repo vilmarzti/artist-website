@@ -8,12 +8,14 @@ import PictureDisplay from '../components/PictureDisplay.astro'
 import { getEntry } from 'astro:content'
 
 const pic = await getEntry('pictures', 'Portrait')
+const text_content = await getEntry('text', 'about')
+console.log(text_content)
 ---
 
 <GeneralLayout title="About">
 
 <div class="body-container">
-    <Text title='About' text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'/>
+    <Text text={text_content}/>
 
     <div class="pic">
         <PictureDisplay picture={pic} attribution="below" />
