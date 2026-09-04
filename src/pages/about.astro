@@ -3,6 +3,11 @@ import '../css/pages/about.sass'
 
 import GeneralLayout from '../layouts/GeneralLayout.astro'
 import Text from '../components/Text.astro'
+import PictureDisplay from '../components/PictureDisplay.astro'
+
+import { getEntry } from 'astro:content'
+
+const pic = await getEntry('pictures', 'Portrait')
 ---
 
 <GeneralLayout title="About">
@@ -11,7 +16,7 @@ import Text from '../components/Text.astro'
     <Text title='About' text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'/>
 
     <div class="pic">
-    <img src="/images/artist_portrait.webp" alt=""/>
+        <PictureDisplay picture={pic} attribution="below" />
     </div>
 </div>
 

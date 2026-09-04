@@ -1,10 +1,10 @@
 ---
-import { getCollection, getEntry } from 'astro:content'
+import "../css/pages/index.sass"
 
 import GeneralLayout from '../layouts/GeneralLayout.astro'
 import PictureDisplay from '../components/PictureDisplay.astro'
 
-import "../css/pages/index.sass"
+import { getCollection, getEntry } from 'astro:content'
 
 
 const pic = await getEntry('pictures', 'Test')

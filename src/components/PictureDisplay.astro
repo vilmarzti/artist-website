@@ -15,13 +15,14 @@ interface Props {
 const { picture, attribution } = Astro.props
 
 const picture_src = ( base === "/" ? "" : base ) + picture.data.image
+
 ---
 
 <div class="picture-container">
     <div class="picture">
         <img src={ picture_src } alt=""/>
         <div class="caption" style={ attribution === "below" ? "" : "display: none"}>
-            { picture.data.title } ({ picture.data.date }), Martin Villavicencio, { picture.data.license }
+            { picture.data.title }({ picture.data.date }), {picture.data.artist}, { picture.data.license }
         </div>
     </div>
     <div class="label" style={ attribution === "side" ? "" : " display: none"}>
