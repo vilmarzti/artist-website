@@ -1,14 +1,20 @@
 @use '../fonts.sass' as fonts
 
-.title
-  @include fonts.title-font
-  font-size: 28px
-  margin-bottom: 40px
-
-.statement-container
-  width: 80%
-
-.content-container
+.body-container
   display: flex
-  justify-content: space-between 
-    
+  align-content: flex-start
+  flex-wrap: wrap
+  justify-content: space-around
+  column-gap: 1.5em
+
+  .pic 
+    max-height: 600px
+
+  .title
+    flex-basis: 100%
+    flex-shrink: 0
+    padding-bottom: 1.5em
+
+@media (min-width: 1180px)
+  .body-container .text-field .title
+    display: none
