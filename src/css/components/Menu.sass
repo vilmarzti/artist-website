@@ -6,31 +6,31 @@ a > div
 
 .header-container
     display: flex
-    align-items: end
-    margin-left: 80px
-    margin-right: 80px
+    flex-direction: column
+    align-items: center
 
     .name-container
-      width: 35%
+      .brand-container
+        background-color: solarized.$cyan
+        display: flex
+        align-items: end
+        padding: 30px 40px
+        width: fit-content
+        margin-bottom: 40px
 
-    .brand-container
-      background-color: solarized.$cyan
-      display: flex
-      align-items: end
-      padding: 30px 40px
-      width: fit-content
+        .text
+          color: solarized.$base3
+          width: 30px
 
-      .text
-        color: solarized.$base3
-
-      .artist-name img
-        width: 200px
-        height: unset
+        .artist-name img
+          width: 150px
+          height: unset
 
     .menu-container
       display: flex
       justify-content: space-between
       width: 65%
+      margin-bottom: 20px
 
       .menu-item
         @include fonts.menu-font
@@ -40,3 +40,13 @@ a > div
         align-items: center
         text-decoration: None
 
+      .menu-item .menu-item-name:hover
+        color: solarized.$cyan
+        font-weight: bold
+
+    hr
+      display: block
+      height: 1px
+      width: 50%
+      border: 0
+      border-bottom: 1px solid solarized.$base0
