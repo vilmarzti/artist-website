@@ -16,7 +16,9 @@
     "tree-sitter": "^0.25.1"
   },
   "allowScripts": {
-    "esbuild": true
+    "esbuild": true,
+    "tree-sitter@0.25.1": true,
+    "@parcel/watcher@2.6.0": true
   },
   "devDependencies": {
     "sass-embedded": "^1.103.1"

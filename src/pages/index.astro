@@ -15,13 +15,15 @@ const text_content = await getEntry('text', 'index')
 <GeneralLayout title="Home Page">
 
 <div class="body-container">
-    <div class="title">
-        A Statement
-    </div>
-    <div class="pic">
+   <div class="pic">
         <PictureDisplay picture={pic} attribution="below" />
     </div>
-    <Text text={text_content}/>
+    <div class="right-container">
+        <div class="title">
+            A Statement
+        </div>
+        <Text text={text_content}/>
+    </div>
 </div>
 
 </GeneralLayout>
