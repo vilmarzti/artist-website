@@ -6,8 +6,6 @@ import PictureDisplay from '../components/PictureDisplay.astro'
 import Text from '../components/Text.astro'
 
 import { getCollection, getEntry } from 'astro:content'
-
-
 const pic = await getEntry('pictures', 'Nachtvolk')
 const text_content = await getEntry('text', 'index')
 ---

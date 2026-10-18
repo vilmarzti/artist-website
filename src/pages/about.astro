@@ -14,7 +14,12 @@ const text_content = await getEntry('text', 'about')
 <GeneralLayout title="About">
 
 <div class="body-container">
-    <Text text={text_content}/>
+    <div class="left-container">
+        <div class="title">
+            About
+        </div>
+        <Text text={text_content}/>
+    </div>
 
     <div class="pic">
         <PictureDisplay picture={pic} attribution="below" />
