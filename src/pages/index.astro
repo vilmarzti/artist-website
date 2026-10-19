@@ -1,5 +1,5 @@
 ---
-import "../css/pages/index.sass"
+import "../css/pages/column.sass"
 
 import GeneralLayout from '../layouts/GeneralLayout.astro'
 import PictureDisplay from '../components/PictureDisplay.astro'
@@ -13,7 +13,7 @@ const text_content = await getEntry('text', 'index')
 <GeneralLayout title="Home Page">
 
 <div class="body-container">
-   <div class="pic">
+   <div class="left-container">
         <PictureDisplay picture={pic} attribution="below" />
     </div>
     <div class="right-container">

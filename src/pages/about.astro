@@ -1,5 +1,5 @@
 ---
-import '../css/pages/about.sass'
+import '../css/pages/column.sass'
 
 import GeneralLayout from '../layouts/GeneralLayout.astro'
 import PictureDisplay from '../components/PictureDisplay.astro'
@@ -21,8 +21,10 @@ const text_content = await getEntry('text', 'about')
         <Text text={text_content}/>
     </div>
 
-    <div class="pic">
-        <PictureDisplay picture={pic} attribution="below" />
+    <div class="right-container">
+        <div class="pic">
+            <PictureDisplay picture={pic} attribution="below" />
+        </div>
     </div>
 </div>
 
